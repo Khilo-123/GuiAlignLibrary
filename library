@@ -10,14 +10,14 @@ function library:Align(obj, loc)
 	cl	cc	cr
 	bl	bc	br
 	]]
-	
+
 	local lastAnchor = obj.AnchorPoint
-	obj.AnchorPoint = UDim2.new(0.5,0.5)
-	
+	obj.AnchorPoint = Vector2.new(0.5,0.5)
+
 	if not obj then
 		return
 	end
-	
+
 	if loc == "cl" then
 		obj.Position = UDim2.new(
 			0,
@@ -90,7 +90,7 @@ function library:Align(obj, loc)
 			viewport.Y - obj.Size.Y.Offset
 		)
 	end
-	
+
 	obj.AnchorPoint = lastAnchor
 end
 
