@@ -11,6 +11,9 @@ function library:Align(obj, loc)
 	bl	bc	br
 	]]
 	
+	local lastAnchor = obj.AnchorPoint
+	obj.AnchorPoint = UDim2.new(0.5,0.5)
+	
 	if not obj then
 		return
 	end
@@ -87,6 +90,8 @@ function library:Align(obj, loc)
 			viewport.Y - obj.Size.Y.Offset
 		)
 	end
+	
+	obj.AnchorPoint = lastAnchor
 end
 
 return library
