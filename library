@@ -1,0 +1,92 @@
+local library = {}
+
+local camera = workspace.CurrentCamera
+local viewport = camera.ViewportSize
+
+function library:Align(obj, loc)
+	--[[
+	Locations:
+	tl	tc	tr
+	cl	cc	cr
+	bl	bc	br
+	]]
+	
+	if not obj then
+		return
+	end
+	
+	if loc == "cl" then
+		obj.Position = UDim2.new(
+			0,
+			obj.Size.X.Offset / 2,
+			0,
+			viewport.Y / 2
+		)
+
+	elseif loc == "cc" then
+		obj.Position = UDim2.new(
+			0,
+			viewport.X / 2,
+			0,
+			viewport.Y / 2
+		)
+
+	elseif loc == "cr" then
+		obj.Position = UDim2.new(
+			0,
+			viewport.X - obj.Size.X.Offset / 2,
+			0,
+			viewport.Y / 2
+		)
+
+	elseif loc == "tl" then
+		obj.Position = UDim2.new(
+			0,
+			obj.Size.X.Offset / 2,
+			0,
+			obj.Size.Y.Offset
+		)
+
+	elseif loc == "tc" then
+		obj.Position = UDim2.new(
+			0,
+			viewport.X / 2,
+			0,
+			obj.Size.Y.Offset
+		)
+
+	elseif loc == "tr" then
+		obj.Position = UDim2.new(
+			0,
+			viewport.X - obj.Size.X.Offset / 2,
+			0,
+			obj.Size.Y.Offset
+		)
+
+	elseif loc == "br" then
+		obj.Position = UDim2.new(
+			0,
+			viewport.X - obj.Size.X.Offset / 2,
+			0,
+			viewport.Y - obj.Size.Y.Offset
+		)
+
+	elseif loc == "bc" then
+		obj.Position = UDim2.new(
+			0,
+			viewport.X / 2,
+			0,
+			viewport.Y - obj.Size.Y.Offset
+		)
+
+	elseif loc == "bl" then
+		obj.Position = UDim2.new(
+			0,
+			obj.Size.X.Offset / 2,
+			0,
+			viewport.Y - obj.Size.Y.Offset
+		)
+	end
+end
+
+return library
